@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>NAVORA — Clinical Intelligence for Complex Care</title>
-<meta name="description" content="NAVORA is a source-referenced, human-controlled clinical orientation layer for complex chronic care. It turns fragmented medical histories into longitudinal, reviewable case intelligence. MVP / Expert Validation Stage." />
+<title>NAVORA — Clinical Intelligence Infrastructure for Complex Care</title>
+<meta name="description" content="NAVORA turns fragmented medical histories into source-referenced, longitudinal clinical orientation. Early-stage clinical intelligence infrastructure for complex care." />
 <meta name="robots" content="index, follow" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="NAVORA — Clinical Intelligence for Complex Care" />
-<meta property="og:description" content="The missing clinical orientation layer for complex care. From fragmented records to a coherent, source-referenced clinical trajectory." />
+<meta property="og:title" content="NAVORA — Clinical Intelligence Infrastructure for Complex Care" />
+<meta property="og:description" content="From fragmented records to a coherent, source-referenced clinical trajectory. See the whole case." />
 <meta property="og:locale" content="en" />
 <meta name="theme-color" content="#18263F" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <style>
   :root{
     --navy:#18263F; --navy-2:#21324F;
@@ -34,209 +34,114 @@
   img{max-width:100%;display:block;}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
-  .section{padding:96px 0;}
-  .section--tight{padding:64px 0;}
+  .section{padding:92px 0;}
   .eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--gold);margin:0 0 18px;}
   .section--dark .eyebrow{color:var(--gold-soft);}
   h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;margin:0;letter-spacing:-.005em;}
-  h2{font-size:clamp(28px,3.9vw,44px);}
-  h3{font-size:21px;line-height:1.2;}
+  h2{font-size:clamp(30px,4.2vw,48px);}
+  h3{font-size:21px;line-height:1.22;}
   p{margin:0 0 16px;}
-  .lead{font-size:clamp(17px,1.9vw,20px);color:var(--muted);max-width:60ch;}
+  .lead{font-size:clamp(17px,1.9vw,20px);color:var(--muted);max-width:64ch;}
   .section--dark .lead{color:var(--muted-light);}
   .lam{color:var(--gold);font-style:normal;}
-  .stack-head{max-width:60ch;margin-bottom:18px;}
+  .section-sub{font-size:clamp(17px,1.9vw,20px);color:var(--muted);margin:14px 0 0;max-width:60ch;}
+  .stack-head{margin-bottom:56px;}
 
-  /* hook line — the pointed messages */
-  .hook{font-family:var(--serif);font-weight:400;line-height:1.22;letter-spacing:-.01em;}
-  .hook-band{background:var(--navy);color:var(--ivory);text-align:center;padding:74px 0;}
-  .hook-band .hook{font-size:clamp(26px,4vw,40px);max-width:18ch;margin:0 auto;}
-  .hook-band .hook .accent{color:var(--gold-soft);}
-
-  /* buttons */
-  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:500;padding:14px 26px;border-radius:2px;cursor:pointer;border:1px solid transparent;transition:all .25s var(--ease);}
-  .btn-primary{background:var(--gold);color:var(--navy);}
-  .btn-primary:hover{background:var(--gold-soft);transform:translateY(-1px);}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-size:14px;font-weight:500;padding:15px 28px;border-radius:2px;cursor:pointer;border:1px solid transparent;transition:all .25s var(--ease);font-family:var(--sans);}
+  .btn-primary{background:var(--navy);color:var(--ivory);}
+  .btn-primary:hover{background:var(--navy-2);transform:translateY(-1px);}
+  .btn-gold{background:var(--gold);color:var(--navy);}
+  .btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px);}
   .btn-ghost{background:transparent;border-color:rgba(24,38,63,0.28);color:var(--navy);}
   .btn-ghost:hover{border-color:var(--navy);background:rgba(24,38,63,0.04);}
-  .section--dark .btn-ghost{border-color:rgba(247,245,241,0.3);color:var(--ivory);}
-  .section--dark .btn-ghost:hover{border-color:var(--ivory);background:rgba(247,245,241,0.06);}
   .btn .arr{transition:transform .25s var(--ease);}
   .btn:hover .arr{transform:translateX(3px);}
 
-  /* nav */
   header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);border-bottom:1px solid transparent;}
   header.nav.scrolled{background:rgba(247,245,241,0.92);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line-soft);}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
-  .logo{font-family:var(--serif);font-size:25px;font-weight:600;letter-spacing:.04em;color:var(--navy);}
-  .nav-links{display:flex;gap:30px;align-items:center;}
-  .nav-links a{font-size:14px;color:var(--muted);transition:color .2s;}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:74px;}
+  .logo{font-family:var(--serif);font-size:26px;font-weight:600;letter-spacing:.05em;color:var(--navy);}
+  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-links a{font-size:14.5px;color:var(--muted);transition:color .2s;}
   .nav-links a:hover{color:var(--navy);}
-  .nav-cta{font-size:13px;font-weight:500;color:var(--navy)!important;border:1px solid rgba(24,38,63,0.25);padding:9px 18px;border-radius:2px;transition:all .2s;}
-  .nav-cta:hover{background:var(--navy);color:var(--ivory)!important;}
   .nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;}
   .nav-toggle span{display:block;width:22px;height:1.5px;background:var(--navy);margin:5px 0;transition:.3s;}
 
-  /* hero */
-  .hero{background:var(--ivory);padding:142px 0 86px;overflow:hidden;}
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center;}
+  .hero{background:var(--ivory);padding:150px 0 92px;overflow:hidden;}
+  .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:50px;align-items:center;}
   .stage-pill{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:7px 15px;border-radius:40px;margin-bottom:28px;font-weight:500;}
   .stage-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);}
-  .hero h1{font-size:clamp(40px,6vw,66px);line-height:1.02;margin-bottom:24px;}
-  .hero .lead{font-size:clamp(17px,2vw,20px);margin-bottom:34px;max-width:52ch;}
+  .hero h1{font-size:clamp(40px,6vw,64px);line-height:1.04;margin-bottom:24px;}
+  .hero .lead{font-size:clamp(17px,2vw,20px);margin-bottom:34px;max-width:50ch;}
   .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
-  .hero-note{margin-top:28px;font-size:13px;color:var(--muted);}
-  .traj{width:100%;height:auto;}
-  .traj .frag{opacity:0;animation:fragIn .7s var(--ease) forwards;}
-  .traj-line{stroke-dasharray:620;stroke-dashoffset:620;animation:draw 2s var(--ease) .5s forwards;}
-  .traj .node{opacity:0;animation:nodeIn .5s var(--ease) forwards;}
-  @keyframes fragIn{to{opacity:1;}}
-  @keyframes nodeIn{to{opacity:1;}}
-  @keyframes draw{to{stroke-dashoffset:0;}}
 
   .section--dark{background:var(--navy);color:var(--ivory);}
   .section--dark h2,.section--dark h3{color:var(--ivory);}
   .section--paper{background:var(--paper);}
-  .split{display:grid;grid-template-columns:0.92fr 1.08fr;gap:60px;align-items:start;}
+
+  /* figures */
+  .figure{border:1px solid var(--line);background:var(--paper);border-radius:8px;padding:30px 30px 24px;}
+  .fig-cap{font-size:12.5px;color:var(--muted);margin-top:16px;text-align:center;letter-spacing:.02em;}
+  .viz{width:100%;height:auto;display:block;}
 
   /* problem */
-  .prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:44px;}
-  .prob-cell{background:var(--ivory);padding:30px 26px;}
-  .prob-cell .num{font-family:var(--serif);font-size:19px;color:var(--gold);margin-bottom:12px;}
-  .prob-cell p{margin:0;font-size:14.5px;color:var(--muted);}
+  .prob-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:58px;align-items:center;}
+  .prob-block{margin-bottom:36px;}
+  .prob-block:last-child{margin-bottom:0;}
+  .prob-block h3{margin-bottom:11px;}
+  .prob-block p{margin:0;font-size:15.5px;color:var(--muted);max-width:52ch;}
+  .prob-visual{background:var(--navy);border-radius:8px;padding:30px 30px 22px;}
+  .prob-visual .pv-cap{font-size:12px;color:var(--muted-light);margin-top:14px;text-align:center;letter-spacing:.03em;}
 
-  /* context stats */
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--navy-line);border:1px solid var(--navy-line);margin-top:42px;}
-  .stat{background:var(--navy);padding:40px 30px;}
-  .stat .big{font-family:var(--serif);font-size:clamp(42px,6vw,62px);line-height:1;color:var(--gold-soft);}
-  .stat .lbl{font-size:14px;color:var(--ivory);margin-top:12px;font-weight:500;}
-  .stat .sub{font-size:13px;color:var(--muted-light);margin-top:6px;}
-  .stats-note{margin-top:18px;font-size:12px;color:var(--muted-light);letter-spacing:.02em;}
+  /* solution cards */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .card{background:var(--ivory);border:1px solid var(--line);padding:34px 30px;border-radius:4px;transition:transform .28s var(--ease),box-shadow .28s var(--ease),border-color .28s var(--ease);}
+  .card:hover{transform:translateY(-3px);box-shadow:0 16px 38px -24px rgba(24,38,63,.42);border-color:rgba(176,138,64,.45);}
+  .card h3{margin-bottom:10px;}
+  .card .sub{font-size:14.5px;color:var(--navy);font-weight:500;margin-bottom:16px;display:block;}
+  .card p{margin:0;font-size:14.5px;color:var(--muted);}
 
-  /* missing layer */
-  .layer-list{list-style:none;padding:0;margin:34px 0 0;}
-  .layer-list li{display:flex;align-items:center;gap:15px;padding:14px 0;border-bottom:1px solid var(--navy-line);font-size:15px;color:var(--muted-light);}
-  .layer-list li:last-child{border-bottom:none;}
-  .layer-list .tick{flex:none;width:23px;height:23px;border:1px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--gold-soft);}
+  /* validation */
+  .hyp-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;}
+  .hyp{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--gold);padding:32px 30px;border-radius:4px;}
+  .hyp-top{display:flex;align-items:baseline;gap:14px;margin-bottom:14px;}
+  .hyp .h{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--gold);line-height:1;}
+  .hyp h3{font-size:19px;}
+  .hyp p{margin:0;font-size:15px;color:var(--muted);}
 
-  /* is / is not */
-  .isnot{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);margin-top:44px;}
-  .isnot-col{padding:38px 36px;}
-  .isnot-col.is{background:var(--ivory);border-right:1px solid var(--line);}
-  .isnot-col.isnot-x{background:var(--paper);}
-  .isnot h3{font-size:14px;font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-weight:600;margin-bottom:22px;}
-  .isnot ul{list-style:none;padding:0;margin:0;}
-  .isnot li{padding:11px 0;font-size:15px;border-bottom:1px solid var(--line-soft);display:flex;gap:12px;align-items:flex-start;}
-  .isnot li:last-child{border-bottom:none;}
-  .isnot .mk{flex:none;font-family:var(--serif);font-size:18px;line-height:1.2;}
-  .is .mk{color:var(--gold);}
-  .isnot-x .mk{color:var(--muted);}
-  .isnot-x li{color:var(--muted);}
-
-  /* ===== TABS (Laschen) ===== */
-  .tabs{margin-top:42px;}
-  .tablist{display:flex;gap:4px;border-bottom:1px solid var(--line);flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}
-  .section--dark .tablist{border-bottom-color:var(--navy-line);}
-  .tab{appearance:none;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:15px;font-weight:500;color:var(--muted);padding:16px 22px;position:relative;white-space:nowrap;transition:color .2s;}
-  .section--dark .tab{color:var(--muted-light);}
-  .tab:after{content:"";position:absolute;left:22px;right:22px;bottom:-1px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .28s var(--ease);}
-  .tab[aria-selected="true"]{color:var(--navy);}
-  .section--dark .tab[aria-selected="true"]{color:var(--ivory);}
-  .tab[aria-selected="true"]:after{transform:scaleX(1);}
-  .tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px;}
-  .tabpanel{display:none;padding-top:38px;animation:fade .45s var(--ease);}
-  .tabpanel.active{display:block;}
-  @keyframes fade{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
-
-  /* capability tab panel layout */
-  .cap{display:grid;grid-template-columns:1fr 0.7fr;gap:48px;align-items:center;}
-  .cap .khook{font-family:var(--serif);font-size:clamp(24px,3vw,32px);line-height:1.22;color:var(--navy);margin-bottom:18px;}
-  .cap p{font-size:16px;color:var(--muted);max-width:50ch;}
-  .cap .tag{display:inline-block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:16px;}
-  .cap-visual{border:1px solid var(--line);background:var(--paper);border-radius:3px;padding:24px;}
-
-  /* module tier panel */
-  .tier-meta{font-size:14px;color:var(--muted);margin-bottom:26px;}
-  .section--dark .tier-meta{color:var(--muted-light);}
-  .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-  .mod{background:var(--paper);border:1px solid var(--line);padding:26px 24px;border-radius:3px;transition:transform .28s var(--ease),box-shadow .28s var(--ease),border-color .28s var(--ease);}
-  .mod:hover{transform:translateY(-3px);box-shadow:0 14px 34px -22px rgba(24,38,63,.4);border-color:rgba(176,138,64,.5);}
-  .mod-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:13px;gap:10px;}
-  .mod h3{font-size:18px;}
-  .badge{font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:600;padding:4px 10px;border-radius:30px;white-space:nowrap;}
-  .badge.now{background:rgba(176,138,64,.16);color:#8a6a2b;}
-  .badge.val{background:rgba(24,38,63,.09);color:var(--navy);}
-  .badge.fut{background:rgba(24,38,63,.05);color:var(--muted);border:1px solid var(--line);}
-  .mod p{margin:0;font-size:13.5px;color:var(--muted);}
-
-  /* stakeholder tab panel */
-  .stake{display:grid;grid-template-columns:0.8fr 1.2fr;gap:48px;align-items:start;}
-  .stake .khook{font-family:var(--serif);font-size:clamp(24px,3vw,30px);line-height:1.24;color:var(--ivory);}
-  .stake ul{list-style:none;padding:0;margin:0;columns:2;column-gap:40px;}
-  .stake li{font-size:15px;color:var(--muted-light);padding:11px 0;border-bottom:1px solid var(--navy-line);break-inside:avoid;}
-
-  /* usp compact strip */
-  .usp-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:42px;}
-  .usp-cell{background:var(--ivory);padding:34px 30px;}
-  .usp-cell .idx{font-family:var(--serif);font-size:14px;color:var(--gold);letter-spacing:.06em;margin-bottom:14px;}
-  .usp-cell h3{margin-bottom:10px;font-size:19px;}
-  .usp-cell p{margin:0;font-size:14px;color:var(--muted);}
-
-  /* how it works spine */
-  .steps{position:relative;margin-top:48px;padding-left:32px;}
-  .steps:before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--navy-line);}
-  .step{position:relative;padding:16px 0 20px;border-bottom:1px solid var(--navy-line);}
-  .step:last-child{border-bottom:none;}
-  .step:before{content:"";position:absolute;left:-29px;top:24px;width:11px;height:11px;border-radius:50%;background:var(--navy);border:1.5px solid var(--gold-soft);}
-  .step .st{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);}
-  .step h3{color:var(--ivory);font-size:18px;margin:5px 0 5px;}
-  .step p{margin:0;font-size:14px;color:var(--muted-light);max-width:58ch;}
-
-  /* focus */
-  .focus-tags{display:flex;flex-wrap:wrap;gap:11px;margin-top:28px;}
-  .focus-tags span{border:1px solid var(--line);background:var(--ivory);padding:9px 18px;border-radius:40px;font-size:14px;color:var(--navy);}
-
-  /* trust */
-  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 38px;margin-top:44px;}
-  .trust-item{border-top:1px solid var(--line);padding-top:18px;}
-  .trust-item h3{font-size:16px;margin-bottom:7px;font-family:var(--sans);font-weight:600;}
-  .trust-item p{margin:0;font-size:14px;color:var(--muted);}
-  .trust-note{margin-top:42px;font-size:13.5px;color:var(--muted);max-width:72ch;border-left:2px solid var(--gold);padding-left:18px;font-style:italic;}
-
-  /* stage */
-  .stage-grid{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start;}
-  .stage-list{list-style:none;padding:0;margin:22px 0 0;}
-  .stage-list li{padding:12px 0;border-bottom:1px solid var(--navy-line);font-size:15px;color:var(--muted-light);display:flex;gap:13px;}
-  .stage-list li:last-child{border-bottom:none;}
-  .stage-list .d{color:var(--gold-soft);}
-  .seeking{background:var(--navy-2);padding:32px 30px;border-radius:3px;}
-  .seeking h3{color:var(--ivory);font-size:18px;margin-bottom:16px;}
-  .seeking ul{list-style:none;padding:0;margin:0;}
-  .seeking li{font-size:14.5px;color:var(--muted-light);padding:8px 0;padding-left:18px;position:relative;}
-  .seeking li:before{content:"—";position:absolute;left:0;color:var(--gold-soft);}
+  /* how it works */
+  .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:8px;position:relative;}
+  .flow:before{content:"";position:absolute;top:26px;left:10%;right:10%;height:1px;background:var(--navy-line);}
+  .flow-step{text-align:center;position:relative;}
+  .flow-num{width:52px;height:52px;border-radius:50%;background:var(--navy-2);border:1.5px solid var(--gold-soft);color:var(--gold-soft);font-family:var(--serif);font-size:22px;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;z-index:1;}
+  .flow-step h3{color:var(--ivory);font-size:18px;margin-bottom:10px;}
+  .flow-step p{margin:0;font-size:13.5px;color:var(--muted-light);}
+  .flow-note{text-align:center;font-style:italic;font-size:14.5px;color:var(--muted-light);margin-top:54px;max-width:74ch;margin-left:auto;margin-right:auto;}
 
   /* founder */
-  .founder{display:grid;grid-template-columns:0.8fr 1.2fr;gap:54px;align-items:start;}
-  .founder-card{border:1px solid var(--line);background:var(--paper);padding:32px;border-radius:3px;}
-  .founder-mark{width:52px;height:52px;border-radius:50%;background:var(--navy);color:var(--gold);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:25px;margin-bottom:18px;}
-  .founder-card .name{font-family:var(--serif);font-size:23px;color:var(--navy);}
-  .founder-card .role{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin:5px 0 16px;}
-  .founder-card p{font-size:14px;color:var(--muted);margin:0;}
-  .founder-body p{font-size:17px;color:var(--muted);}
-  .founder-body .pull{font-family:var(--serif);font-size:clamp(22px,2.6vw,28px);line-height:1.32;color:var(--navy);margin-bottom:22px;}
+  .founder-card{background:var(--ivory);border:1px solid var(--line);border-radius:6px;padding:54px 56px;max-width:920px;margin:0 auto;}
+  .founder-card .intro{font-size:17.5px;color:var(--ink);line-height:1.7;margin-bottom:34px;}
+  .founder-quote{border-left:3px solid var(--gold);padding:6px 0 6px 26px;margin:0;}
+  .founder-quote p{font-family:var(--serif);font-style:italic;font-size:clamp(24px,3vw,30px);line-height:1.32;color:var(--navy);margin:0 0 16px;}
+  .founder-quote .attr{font-size:14px;color:var(--muted);font-style:normal;}
+  .founder-closing{text-align:center;font-size:17px;color:var(--muted);max-width:70ch;margin:48px auto 0;line-height:1.6;}
 
   /* contact */
-  .contact{text-align:center;}
-  .contact h2{margin-bottom:18px;}
-  .contact .lead{margin:0 auto 34px;}
-  .contact-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-  .mail{font-family:var(--serif);font-size:clamp(22px,3vw,30px);color:var(--gold-soft);margin-top:34px;display:inline-block;border-bottom:1px solid transparent;transition:border-color .2s;}
-  .mail:hover{border-bottom-color:var(--gold-soft);}
+  .contact-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;align-items:start;}
+  .contact-intro p{font-size:16px;color:var(--muted);}
+  .form-card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:40px 38px;}
+  .field{margin-bottom:22px;}
+  .field label{display:block;font-size:13.5px;font-weight:600;color:var(--navy);margin-bottom:8px;}
+  .field label .req{color:#b0402b;}
+  .field input,.field select,.field textarea{width:100%;font-family:var(--sans);font-size:15px;color:var(--ink);background:var(--ivory);border:1px solid var(--line);border-radius:3px;padding:13px 15px;transition:border-color .2s;}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);}
+  .field textarea{min-height:120px;resize:vertical;}
+  .field input::placeholder,.field textarea::placeholder{color:#9aa1ad;}
+  .form-note{font-size:12.5px;color:var(--muted);margin-top:10px;}
 
-  /* footer */
   footer{background:var(--navy);color:var(--muted-light);padding:54px 0 38px;border-top:1px solid var(--navy-line);}
   .foot-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;}
-  .foot-logo{font-family:var(--serif);font-size:26px;color:var(--ivory);letter-spacing:.04em;font-weight:600;}
+  .foot-logo{font-family:var(--serif);font-size:26px;color:var(--ivory);letter-spacing:.05em;font-weight:600;}
   .foot-tag{font-size:14px;margin-top:8px;color:var(--muted-light);}
   .foot-meta{font-size:12.5px;color:rgba(247,245,241,.45);margin-top:22px;line-height:1.8;}
   .foot-links{display:flex;flex-direction:column;gap:10px;font-size:14px;}
@@ -245,33 +150,88 @@
   .reveal{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease);}
   .reveal.in{opacity:1;transform:none;}
 
+  /* svg animation helpers */
+  .v-fade{opacity:0;animation:v-fade .7s var(--ease) forwards;}
+  @keyframes v-fade{to{opacity:1;}}
+  .v-draw{stroke-dasharray:1100;stroke-dashoffset:1100;animation:v-draw 1.9s var(--ease) forwards;}
+  @keyframes v-draw{to{stroke-dashoffset:0;}}
+  .v-pop{opacity:0;transform-box:fill-box;transform-origin:center;animation:v-pop .55s var(--ease) forwards;}
+  @keyframes v-pop{from{opacity:0;transform:scale(.5);}to{opacity:1;transform:scale(1);}}
+  .viz-enter{opacity:0;animation:vizEnter .9s var(--ease) .12s forwards;}
+  @keyframes vizEnter{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:none;}}
+
   @media(max-width:920px){
-    .hero-grid,.split,.stage-grid,.founder,.cap,.stake{grid-template-columns:1fr;gap:38px;}
-    .hero-visual,.cap-visual{order:-1;max-width:460px;}
-    .prob-grid{grid-template-columns:repeat(2,1fr);}
-    .mods{grid-template-columns:repeat(2,1fr);}
-    .trust-grid{grid-template-columns:repeat(2,1fr);}
-    .usp-strip{grid-template-columns:1fr;}
-    .stake ul{columns:1;}
+    .hero-grid,.prob-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}
+    .hero-visual,.prob-visual{order:-1;}
+    .cards{grid-template-columns:repeat(2,1fr);}
+    .hyp-grid{grid-template-columns:1fr;}
+    .flow{grid-template-columns:repeat(2,1fr);gap:34px 18px;}
+    .flow:before{display:none;}
   }
   @media(max-width:680px){
     .wrap{padding:0 22px;}
-    .section{padding:66px 0;}
-    .nav-links{position:fixed;top:72px;left:0;right:0;background:var(--ivory);flex-direction:column;align-items:flex-start;gap:0;padding:8px 22px 22px;border-bottom:1px solid var(--line);transform:translateY(-120%);transition:transform .35s var(--ease);}
+    .section{padding:64px 0;}
+    .nav-links{position:fixed;top:74px;left:0;right:0;background:var(--ivory);flex-direction:column;align-items:flex-start;gap:0;padding:8px 22px 22px;border-bottom:1px solid var(--line);transform:translateY(-130%);transition:transform .35s var(--ease);}
     .nav-links.open{transform:translateY(0);box-shadow:0 20px 40px -28px rgba(24,38,63,.5);}
     .nav-links a{padding:14px 0;width:100%;border-bottom:1px solid var(--line-soft);}
-    .nav-cta{border:1px solid var(--navy);margin-top:12px;}
     .nav-toggle{display:block;}
-    .prob-grid,.isnot,.mods,.stats,.trust-grid{grid-template-columns:1fr;}
-    .isnot-col.is{border-right:none;border-bottom:1px solid var(--line);}
+    .cards,.flow{grid-template-columns:1fr;}
+    .founder-card,.form-card{padding:32px 24px;}
     .hero h1{font-size:40px;}
+    .figure{padding:18px 16px 16px;}
   }
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important;scroll-behavior:auto!important;}
     .reveal{opacity:1;transform:none;}
-    .traj-line{stroke-dashoffset:0;}
-    .traj .frag,.traj .node{opacity:1;}
+    .v-fade,.v-pop{opacity:1!important;transform:none!important;}
+    .v-draw{stroke-dashoffset:0!important;}
+    .viz-enter{opacity:1!important;transform:none!important;}
   }
+
+  /* ---- tabs (Laschen) ---- */
+  .tabs{margin-top:40px;}
+  .tablist{display:flex;gap:4px;border-bottom:1px solid var(--line);flex-wrap:wrap;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .tab{appearance:none;background:none;border:none;cursor:pointer;font-family:var(--sans);font-size:15px;font-weight:500;color:var(--muted);padding:15px 22px;position:relative;white-space:nowrap;transition:color .2s;}
+  .tab:after{content:"";position:absolute;left:22px;right:22px;bottom:-1px;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .28s var(--ease);}
+  .tab[aria-selected="true"]{color:var(--navy);}
+  .tab[aria-selected="true"]:after{transform:scaleX(1);}
+  .tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  .tabpanel{display:none;padding-top:34px;animation:fadeTab .45s var(--ease);}
+  .tabpanel.active{display:block;}
+  @keyframes fadeTab{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  .sol{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start;}
+  .sol .khook{font-family:var(--serif);font-size:clamp(22px,2.8vw,28px);line-height:1.26;color:var(--navy);margin-bottom:18px;}
+  .sol ul{list-style:none;padding:0;margin:0 0 4px;}
+  .sol li{font-size:15px;color:var(--muted);padding:8px 0 8px 20px;position:relative;}
+  .sol li:before{content:"\2014";position:absolute;left:0;color:var(--gold);}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .tags span{font-size:12px;letter-spacing:.04em;color:var(--navy);border:1px solid var(--line);background:var(--ivory);border-radius:30px;padding:6px 13px;}
+  .tags .fut{color:var(--muted);border-style:dashed;}
+  /* ---- contrast ---- */
+  .contrast{margin-top:8px;border:1px solid var(--navy-line);border-radius:8px;overflow:hidden;}
+  .contrast-row{display:grid;grid-template-columns:1fr 1fr;}
+  .contrast-row + .contrast-row{border-top:1px solid var(--navy-line);}
+  .contrast-cell{padding:22px 26px;font-size:15px;line-height:1.5;}
+  .contrast-cell.before{color:var(--muted-light);}
+  .contrast-cell.after{color:var(--ivory);border-left:1px solid var(--navy-line);background:rgba(176,138,64,0.08);}
+  .contrast-head .contrast-cell{font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;}
+  .contrast-head .before{color:var(--muted-light);}
+  .contrast-head .after{color:var(--gold-soft);}
+  /* ---- comparison table ---- */
+  .cmp{margin-top:8px;border:1px solid var(--line);border-radius:8px;overflow:hidden;}
+  .cmp-row{display:grid;grid-template-columns:0.8fr 1.2fr 1.2fr;}
+  .cmp-row + .cmp-row{border-top:1px solid var(--line);}
+  .cmp-cell{padding:18px 22px;font-size:14.5px;line-height:1.5;}
+  .cmp-dim{font-weight:600;color:var(--navy);background:var(--paper);}
+  .cmp-nav{color:var(--navy);border-left:3px solid var(--gold);}
+  .cmp-gen{color:var(--muted);}
+  .cmp-head{background:var(--navy);}
+  .cmp-head .cmp-cell{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--muted-light);}
+  .cmp-head .cmp-dim{background:transparent;}
+  .cmp-head .cmp-nav{color:var(--ivory);}
+  @media(max-width:920px){.sol{grid-template-columns:1fr;gap:26px;}}
+  @media(max-width:760px){.cmp-row,.contrast-row{grid-template-columns:1fr;} .cmp-nav,.contrast-cell.after{border-left:none;}}
+
 </style>
 </head>
 <body>
@@ -282,472 +242,604 @@
     <a href="#top" class="logo">NAVOR<span class="lam">Λ</span></a>
     <nav class="nav-links" id="navlinks">
       <a href="#problem">Problem</a>
-      <a href="#what">What it does</a>
-      <a href="#modules">Modules</a>
-      <a href="#who">For whom</a>
-      <a href="#stage">Stage</a>
-      <a href="#contact" class="nav-cta">Request an introduction</a>
+      <a href="#layer">Architecture</a>
+      <a href="#solution">Solution</a>
+      <a href="#solutions">Use cases</a>
+      <a href="#validation">Validation</a>
+      <a href="#how">How It Works</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
     </nav>
     <button class="nav-toggle" id="navtoggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO + VISUAL (b) fragments -> trajectory -->
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <span class="stage-pill"><span class="dot"></span>MVP · Expert Validation Stage</span>
-      <h1>Clinical Intelligence<br>for Complex Care</h1>
-      <p class="lead">NAVORA turns fragmented medical histories into source-referenced, longitudinal case intelligence — so complex cases become clinically readable before, between and across care encounters.</p>
+      <h1>Clinical Intelligence Infrastructure for Complex Care</h1>
+      <p class="lead">NAVORA turns fragmented medical histories into source-referenced, longitudinal clinical orientation. See the whole case.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">Request an introduction <span class="arr">→</span></a>
-        <a href="#demo" class="btn btn-ghost">View demo</a>
+        <a href="#solution" class="btn btn-primary">Explore Partnership <span class="arr">→</span></a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
       </div>
-      <p class="hero-note">A human-controlled orientation layer — not a diagnosis tool, not a replacement for clinicians.</p>
     </div>
     <div class="hero-visual">
-      <svg class="traj" viewBox="0 0 460 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fragmented records resolving into one source-referenced clinical trajectory">
-        <g fill="none" stroke="#18263F" stroke-opacity="0.22" stroke-width="1">
-          <rect class="frag" style="animation-delay:.1s" x="14" y="40" width="46" height="30" rx="2"/>
-          <rect class="frag" style="animation-delay:.25s" x="30" y="120" width="46" height="30" rx="2"/>
-          <rect class="frag" style="animation-delay:.4s" x="10" y="210" width="46" height="30" rx="2"/>
-          <rect class="frag" style="animation-delay:.55s" x="34" y="300" width="46" height="30" rx="2"/>
-        </g>
-        <g stroke="#B08A40" stroke-opacity="0.4" stroke-width="1" stroke-dasharray="3 4">
-          <line class="frag" style="animation-delay:.7s" x1="60" y1="55" x2="160" y2="80"/>
-          <line class="frag" style="animation-delay:.8s" x1="76" y1="135" x2="170" y2="150"/>
-          <line class="frag" style="animation-delay:.9s" x1="56" y1="225" x2="178" y2="232"/>
-          <line class="frag" style="animation-delay:1s" x1="80" y1="315" x2="190" y2="300"/>
-        </g>
-        <path class="traj-line" d="M160 80 C 230 120, 150 160, 230 200 S 250 280, 200 320" fill="none" stroke="#18263F" stroke-width="2.2" stroke-linecap="round"/>
-        <g>
-          <circle class="node" style="animation-delay:1.2s" cx="160" cy="80" r="6.5" fill="#18263F"/>
-          <circle class="node" style="animation-delay:1.5s" cx="232" cy="180" r="6.5" fill="#B08A40"/>
-          <circle class="node" style="animation-delay:1.8s" cx="237" cy="248" r="6.5" fill="#18263F"/>
-          <circle class="node" style="animation-delay:2.1s" cx="200" cy="320" r="8" fill="#B08A40"/>
-        </g>
-        <g class="node" style="animation-delay:2.3s" font-family="Inter, sans-serif" font-size="9" fill="#5C6577">
-          <rect x="258" y="70" width="92" height="22" rx="2" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.12"/>
-          <text x="266" y="84">finding · 2019</text>
-          <rect x="262" y="172" width="98" height="22" rx="2" fill="#FBFAF7" stroke="#B08A40" stroke-opacity="0.4"/>
-          <text x="270" y="186">open question</text>
-          <rect x="262" y="240" width="92" height="22" rx="2" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.12"/>
-          <text x="270" y="254">hypothesis</text>
-        </g>
-      </svg>
+      <svg class="viz viz-enter" viewBox="0 0 540 420" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+  <defs>
+    <linearGradient id="hbArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C9A85F" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#C9A85F" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="hbShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3.2" flood-color="#18263F" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+
+  <!-- funnel guides -->
+  <g fill="none" stroke="#B08A40" stroke-opacity="0.16" stroke-width="1.2">
+    <path d="M70 56 Q 200 120 262 206"/>
+    <path d="M84 356 Q 200 292 262 206"/>
+  </g>
+
+  <!-- record cards -->
+  <!-- c1 gold header -->
+  <g transform="translate(12,24) rotate(-6)" filter="url(#hbShadow)">
+    <rect width="82" height="58" rx="5" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.16"/>
+    <path d="M0 5 a5 5 0 0 1 5 -5 h72 a5 5 0 0 1 5 5 v6 h-82 z" fill="#B08A40" fill-opacity="0.28"/>
+    <line x1="11" y1="26" x2="64" y2="26" stroke="#5C6577" stroke-opacity="0.45" stroke-width="2"/>
+    <line x1="11" y1="35" x2="55" y2="35" stroke="#5C6577" stroke-opacity="0.30" stroke-width="2"/>
+    <line x1="11" y1="44" x2="66" y2="44" stroke="#5C6577" stroke-opacity="0.22" stroke-width="2"/>
+  </g>
+  <!-- c2 waveform -->
+  <g transform="translate(106,52) rotate(5)" filter="url(#hbShadow)">
+    <rect width="82" height="58" rx="5" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.16"/>
+    <path d="M0 5 a5 5 0 0 1 5 -5 h72 a5 5 0 0 1 5 5 v6 h-82 z" fill="#3A4A66" fill-opacity="0.16"/>
+    <polyline points="11,42 22,42 27,30 32,50 37,42 48,42 53,34 58,48 63,42 71,42" fill="none" stroke="#B08A40" stroke-opacity="0.75" stroke-width="1.6"/>
+  </g>
+  <!-- c3 -->
+  <g transform="translate(2,138) rotate(3)" filter="url(#hbShadow)">
+    <rect width="82" height="58" rx="5" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.16"/>
+    <path d="M0 5 a5 5 0 0 1 5 -5 h72 a5 5 0 0 1 5 5 v6 h-82 z" fill="#3A4A66" fill-opacity="0.16"/>
+    <line x1="11" y1="26" x2="66" y2="26" stroke="#5C6577" stroke-opacity="0.45" stroke-width="2"/>
+    <line x1="11" y1="35" x2="50" y2="35" stroke="#5C6577" stroke-opacity="0.30" stroke-width="2"/>
+    <line x1="11" y1="44" x2="62" y2="44" stroke="#5C6577" stroke-opacity="0.22" stroke-width="2"/>
+  </g>
+  <!-- c4 bars -->
+  <g transform="translate(98,172) rotate(-6)" filter="url(#hbShadow)">
+    <rect width="82" height="58" rx="5" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.16"/>
+    <path d="M0 5 a5 5 0 0 1 5 -5 h72 a5 5 0 0 1 5 5 v6 h-82 z" fill="#3A4A66" fill-opacity="0.16"/>
+    <rect x="16" y="36" width="9" height="14" fill="#3A4A66" fill-opacity="0.5"/>
+    <rect x="30" y="28" width="9" height="22" fill="#B08A40" fill-opacity="0.6"/>
+    <rect x="44" y="40" width="9" height="10" fill="#3A4A66" fill-opacity="0.5"/>
+    <rect x="58" y="32" width="9" height="18" fill="#3A4A66" fill-opacity="0.4"/>
+  </g>
+  <!-- c5 gold header -->
+  <g transform="translate(20,256) rotate(6)" filter="url(#hbShadow)">
+    <rect width="82" height="58" rx="5" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.16"/>
+    <path d="M0 5 a5 5 0 0 1 5 -5 h72 a5 5 0 0 1 5 5 v6 h-82 z" fill="#B08A40" fill-opacity="0.28"/>
+    <line x1="11" y1="26" x2="63" y2="26" stroke="#5C6577" stroke-opacity="0.45" stroke-width="2"/>
+    <line x1="11" y1="35" x2="48" y2="35" stroke="#5C6577" stroke-opacity="0.30" stroke-width="2"/>
+    <line x1="11" y1="44" x2="60" y2="44" stroke="#5C6577" stroke-opacity="0.22" stroke-width="2"/>
+  </g>
+  <!-- c6 -->
+  <g transform="translate(106,322) rotate(-5)" filter="url(#hbShadow)">
+    <rect width="82" height="58" rx="5" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.16"/>
+    <path d="M0 5 a5 5 0 0 1 5 -5 h72 a5 5 0 0 1 5 5 v6 h-82 z" fill="#3A4A66" fill-opacity="0.16"/>
+    <line x1="11" y1="26" x2="64" y2="26" stroke="#5C6577" stroke-opacity="0.45" stroke-width="2"/>
+    <line x1="11" y1="35" x2="52" y2="35" stroke="#5C6577" stroke-opacity="0.30" stroke-width="2"/>
+    <line x1="11" y1="44" x2="66" y2="44" stroke="#5C6577" stroke-opacity="0.22" stroke-width="2"/>
+  </g>
+
+  <!-- converging threads -->
+  <g fill="none" stroke="#B08A40" stroke-opacity="0.4" stroke-width="1" stroke-dasharray="3 4">
+    <path d="M96 52 C 170 90, 215 160, 262 206"/>
+    <path d="M188 82 C 220 120, 240 165, 262 206"/>
+    <path d="M86 166 C 160 178, 215 192, 262 206"/>
+    <path d="M178 198 C 215 204, 240 205, 262 206"/>
+    <path d="M104 286 C 170 250, 215 218, 262 206"/>
+    <path d="M188 350 C 225 290, 245 232, 262 206"/>
+  </g>
+
+  <!-- trajectory area + line -->
+  <path d="M262 206 C 330 178, 318 258, 386 270 S 466 304, 512 286 L 512 360 L 262 360 Z" fill="url(#hbArea)"/>
+  <line x1="262" y1="360" x2="512" y2="360" stroke="#B08A40" stroke-opacity="0.22"/>
+  <path class="v-draw" style="animation-delay:.45s" d="M262 206 C 330 178, 318 258, 386 270 S 466 304, 512 286" fill="none" stroke="#18263F" stroke-width="2.6" stroke-linecap="round" filter="url(#hbShadow)"/>
+
+  <!-- nodes -->
+  <circle cx="262" cy="206" r="10" fill="none" stroke="#18263F" stroke-opacity="0.25"/>
+  <circle cx="262" cy="206" r="6" fill="#18263F"/>
+  <circle cx="332" cy="244" r="5" fill="#3A4A66"/>
+  <circle cx="386" cy="270" r="8" fill="none" stroke="#B08A40" stroke-width="2.6"/>
+  <circle cx="464" cy="294" r="11" fill="none" stroke="#B08A40" stroke-opacity="0.3"/>
+  <rect x="457" y="287" width="14" height="14" rx="1.5" transform="rotate(45 464 294)" fill="#C9A85F"/>
+  <circle cx="510" cy="286" r="6" fill="#18263F"/>
+
+  <!-- label pills -->
+  <g font-size="10.5" fill="#2B3650">
+    <line x1="300" y1="180" x2="266" y2="200" stroke="#B08A40" stroke-opacity="0.45"/>
+    <rect x="296" y="160" width="116" height="24" rx="4" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.14" filter="url(#hbShadow)"/>
+    <circle cx="308" cy="172" r="3.5" fill="#18263F"/><text x="318" y="175.5">Finding · 2018</text>
+
+    <line x1="356" y1="300" x2="384" y2="276" stroke="#B08A40" stroke-opacity="0.5"/>
+    <rect x="300" y="300" width="116" height="24" rx="4" fill="#FBFAF7" stroke="#B08A40" stroke-opacity="0.45" filter="url(#hbShadow)"/>
+    <circle cx="312" cy="312" r="3.5" fill="none" stroke="#B08A40" stroke-width="2"/><text x="322" y="315.5">Open question</text>
+
+    <line x1="452" y1="316" x2="464" y2="302" stroke="#B08A40" stroke-opacity="0.5"/>
+    <rect x="406" y="320" width="100" height="24" rx="4" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.14" filter="url(#hbShadow)"/>
+    <rect x="415" y="329" width="7" height="7" rx="1" transform="rotate(45 418.5 332.5)" fill="#C9A85F"/><text x="428" y="335.5">Hypothesis</text>
+  </g>
+</svg>
+
     </div>
   </div>
 </section>
 
-<!-- HOOK BAND 1 -->
-<section class="hook-band">
-  <div class="wrap">
-    <p class="hook">The system can move the data <span class="accent">and still miss the case.</span></p>
-  </div>
-</section>
-
-<!-- PROBLEM -->
+<!-- PROBLEM + VISUAL (a) longitudinal timeline -->
 <section class="section section--paper" id="problem">
   <div class="wrap">
     <div class="stack-head reveal">
       <p class="eyebrow">The problem</p>
-      <h2>Complex cases lack usable orientation.</h2>
-      <p class="lead" style="margin-top:16px;">The information usually exists. It is just scattered across years, specialties, documents and systems — and rarely available as one coherent trajectory when it matters.</p>
+      <h2>The Problem</h2>
+      <p class="section-sub">Complex care cases remain clinically invisible despite comprehensive documentation.</p>
     </div>
-    <div class="prob-grid reveal">
-      <div class="prob-cell"><div class="num">01</div><p>Histories fragmented across years, disciplines, documents and care settings.</p></div>
-      <div class="prob-cell"><div class="num">02</div><p>Clinical time is scarce. Manual case reconstruction is where context is lost.</p></div>
-      <div class="prob-cell"><div class="num">03</div><p>Patients and caregivers carry too much of the re-explanation burden.</p></div>
-      <div class="prob-cell"><div class="num">04</div><p>In long multisystem conditions this becomes a structural care problem.</p></div>
+    <div class="prob-grid">
+      <div class="reveal">
+        <div class="prob-block">
+          <h3>Fragmented Medical Histories</h3>
+          <p>Complex chronic care generates documentation across multiple systems, specialists, and time periods. Each consultation operates from fragments — incomplete views of the patient's clinical journey.</p>
+        </div>
+        <div class="prob-block">
+          <h3>The Missing Continuity Layer</h3>
+          <p>In complex cases, the person carrying the case often becomes the only continuity layer across time, systems, and clinical decisions. The clinically readable whole-case orientation doesn't emerge from the records alone.</p>
+        </div>
+        <div class="prob-block">
+          <h3>Missed Patterns</h3>
+          <p>When each consultation starts from fragments, critical patterns and longitudinal context remain obscured, affecting clinical decision-making and care coordination.</p>
+        </div>
+      </div>
+      <div class="prob-visual reveal">
+        <svg class="viz viz-enter" viewBox="0 0 470 300" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+  <defs>
+    <linearGradient id="taArea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C9A85F" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#C9A85F" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="taHatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="7" stroke="#C9A85F" stroke-opacity="0.22" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <!-- legend -->
+  <g font-size="9.5" fill="rgba(247,245,241,0.64)">
+    <circle cx="36" cy="18" r="4" fill="#F7F5F1"/><text x="45" y="21.5">Finding</text>
+    <circle cx="120" cy="18" r="5" fill="none" stroke="#C9A85F" stroke-width="2"/><text x="129" y="21.5">Open question</text>
+    <rect x="236" y="14" width="9" height="9" rx="1" transform="rotate(45 240.5 18.5)" fill="#C9A85F"/><text x="252" y="21.5">Hypothesis</text>
+    <line x1="356" y1="18" x2="378" y2="18" stroke="#C9A85F" stroke-width="1.6" stroke-dasharray="4 3"/><text x="384" y="21.5">Gap</text>
+  </g>
+
+  <!-- plot panel -->
+  <rect x="34" y="42" width="404" height="206" rx="6" fill="#F7F5F1" fill-opacity="0.035"/>
+  <!-- gridlines -->
+  <g stroke="#F7F5F1" stroke-opacity="0.06">
+    <line x1="42" y1="92" x2="430" y2="92"/><line x1="42" y1="146" x2="430" y2="146"/><line x1="42" y1="200" x2="430" y2="200"/>
+  </g>
+  <!-- y label -->
+  <text x="20" y="148" font-size="9" fill="rgba(247,245,241,0.42)" transform="rotate(-90 20 148)" text-anchor="middle">clinical course</text>
+
+  <!-- gap hatch band -->
+  <rect x="138" y="48" width="62" height="200" fill="url(#taHatch)"/>
+
+  <!-- area fills -->
+  <path d="M48 214 C 72 200, 114 174, 138 162 L138 248 L48 248 Z" fill="url(#taArea)"/>
+  <path d="M200 154 C 232 118, 256 112, 282 126 C 308 140, 322 160, 346 152 C 368 144, 384 112, 406 118 L406 248 L200 248 Z" fill="url(#taArea)"/>
+
+  <!-- course lines -->
+  <path d="M48 214 C 72 200, 114 174, 138 162" fill="none" stroke="#F7F5F1" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M138 162 L 200 154" fill="none" stroke="#C9A85F" stroke-width="1.8" stroke-dasharray="4 4" stroke-linecap="round"/>
+  <path d="M200 154 C 232 118, 256 112, 282 126 C 308 140, 322 160, 346 152 C 368 144, 384 112, 406 118" fill="none" stroke="#F7F5F1" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- x axis -->
+  <line x1="36" y1="248" x2="430" y2="248" stroke="#C9A85F" stroke-opacity="0.4"/>
+  <g font-size="9.5" fill="rgba(247,245,241,0.58)">
+    <text x="40" y="266">2017</text><text x="128" y="266">2019</text><text x="222" y="266">2021</text><text x="316" y="266">2023</text><text x="408" y="266">now</text>
+  </g>
+
+  <!-- annotations -->
+  <g font-size="9" fill="rgba(247,245,241,0.6)">
+    <line x1="169" y1="78" x2="169" y2="150" stroke="#F7F5F1" stroke-opacity="0.25"/>
+    <text x="169" y="72" text-anchor="middle" fill="#C9A85F">documentation gap</text>
+    <line x1="282" y1="104" x2="282" y2="120" stroke="#F7F5F1" stroke-opacity="0.25"/>
+    <text x="282" y="98" text-anchor="middle">turning point</text>
+    <line x1="406" y1="100" x2="406" y2="114" stroke="#F7F5F1" stroke-opacity="0.25"/>
+    <text x="406" y="94" text-anchor="middle">unresolved</text>
+  </g>
+
+  <!-- markers -->
+  <circle cx="48" cy="214" r="8" fill="none" stroke="#F7F5F1" stroke-opacity="0.3"/><circle cx="48" cy="214" r="4.5" fill="#F7F5F1"/>
+  <circle cx="92" cy="188" r="4.5" fill="#F7F5F1"/>
+  <circle cx="138" cy="162" r="4.5" fill="#F7F5F1"/>
+  <circle cx="200" cy="154" r="6" fill="none" stroke="#C9A85F" stroke-width="2.2"/>
+  <circle cx="282" cy="126" r="10" fill="none" stroke="#C9A85F" stroke-opacity="0.3"/>
+  <rect x="276" y="120" width="12" height="12" rx="1.5" transform="rotate(45 282 126)" fill="#C9A85F"/>
+  <circle cx="346" cy="152" r="4.5" fill="#F7F5F1"/>
+  <circle cx="406" cy="118" r="6" fill="none" stroke="#C9A85F" stroke-width="2.2"/>
+</svg>
+
+        <p class="pv-cap">One reconstructed trajectory — findings, open questions, hypotheses and a documentation gap, on one axis.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- CONTEXT STATS -->
-<section class="section--tight section--dark">
-  <div class="wrap">
-    <p class="eyebrow reveal">The system context</p>
-    <div class="stats reveal">
-      <div class="stat"><div class="big">CHF 90B+</div><div class="lbl">Annual Swiss health expenditure</div><div class="sub">around 12% of GDP</div></div>
-      <div class="stat"><div class="big">~2.3M</div><div class="lbl">People with complex chronic conditions</div><div class="sub">in Switzerland</div></div>
-      <div class="stat"><div class="big">&lt; 1%</div><div class="lbl">EPD adoption to date</div><div class="sub">infrastructure ≠ usability</div></div>
-    </div>
-    <p class="stats-note reveal">Context figures on the care system — not NAVORA outcomes. Sources: Swiss federal health statistics; DigiSanté / Obsan.</p>
-  </div>
-</section>
-
-<!-- MISSING LAYER -->
-<section class="section section--dark" id="layer">
-  <div class="wrap split">
-    <div class="reveal">
-      <p class="eyebrow">The missing layer</p>
-      <h2 class="hook">Data movement is<br>not understanding.</h2>
-      <ul class="layer-list">
-        <li><span class="tick">✓</span> EHR / HIS and clinical documentation</li>
-        <li><span class="tick">✓</span> Medical scribes and document storage</li>
-        <li><span class="tick">✓</span> Decision-support systems and patient apps</li>
-        <li><span class="tick">✓</span> Generic AI tools and summarisers</li>
-      </ul>
-    </div>
-    <div class="reveal">
-      <p class="lead">What is often missing is a clinical orientation layer that reconstructs the actual case — longitudinally, source-referenced and across specialties.</p>
-      <p class="lead" style="margin-top:20px;">NAVORA is not trying to replace existing systems. It makes fragmented information clinically usable before, between and across care encounters.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT IT DOES — TABS -->
-<section class="section" id="what">
+<!-- CONTRAST (adapted: without/with) -->
+<section class="section section--dark" id="difference">
   <div class="wrap">
     <div class="stack-head reveal">
-      <p class="eyebrow">What NAVORA does</p>
-      <h2 class="hook">NAVORA does not count labels.<br>It reconstructs trajectories.</h2>
+      <p class="eyebrow">The difference</p>
+      <h2>What changes with an orientation layer</h2>
     </div>
-
-    <div class="tabs reveal" data-tabs>
-      <div class="tablist" role="tablist" aria-label="What NAVORA does">
-        <button class="tab" role="tab" aria-selected="true" id="c-t1" aria-controls="c-p1">Reconstruct</button>
-        <button class="tab" role="tab" aria-selected="false" id="c-t2" aria-controls="c-p2" tabindex="-1">Source-reference</button>
-        <button class="tab" role="tab" aria-selected="false" id="c-t3" aria-controls="c-p3" tabindex="-1">Surface gaps</button>
+    <div class="contrast reveal">
+      <div class="contrast-row contrast-head">
+        <div class="contrast-cell before">Without an orientation layer</div>
+        <div class="contrast-cell after">With NAVORA</div>
       </div>
-
-      <div class="tabpanel active" role="tabpanel" id="c-p1" aria-labelledby="c-t1">
-        <div class="cap">
-          <div>
-            <span class="tag">Longitudinal-first</span>
-            <p class="khook">Reconstructs what happened across time — not only what one encounter documented.</p>
-            <p>NAVORA assembles years of scattered records into a single readable trajectory: what happened, in what order, with which turning points and gaps.</p>
-          </div>
-          <div class="cap-visual">
-            <svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A timeline reconstructed from scattered points">
-              <line x1="20" y1="120" x2="220" y2="120" stroke="#18263F" stroke-opacity="0.15"/>
-              <path d="M20 110 C 70 60, 110 100, 150 55 S 200 70, 220 40" fill="none" stroke="#18263F" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="20" cy="110" r="4" fill="#B08A40"/><circle cx="90" cy="78" r="4" fill="#18263F"/>
-              <circle cx="150" cy="55" r="4" fill="#B08A40"/><circle cx="220" cy="40" r="5" fill="#18263F"/>
-            </svg>
-          </div>
-        </div>
+      <div class="contrast-row">
+        <div class="contrast-cell before">The whole case lives in one person's head — and is re-told at every handover.</div>
+        <div class="contrast-cell after">The trajectory is reconstructed once and stays readable for the whole team.</div>
       </div>
-
-      <div class="tabpanel" role="tabpanel" id="c-p2" aria-labelledby="c-t2">
-        <div class="cap">
-          <div>
-            <span class="tag">Source-traceable</span>
-            <p class="khook">Every relevant statement stays linked to where it came from.</p>
-            <p>Document, date, section, finding, observation or hypothesis — each statement is designed to remain traceable to its origin and review status. Trust requires source referencing.</p>
-          </div>
-          <div class="cap-visual">
-            <svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A statement linked to its source document">
-              <circle cx="55" cy="75" r="7" fill="#18263F"/>
-              <line x1="62" y1="75" x2="150" y2="75" stroke="#B08A40" stroke-dasharray="3 3"/>
-              <rect x="150" y="58" width="70" height="34" rx="2" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.15"/>
-              <line x1="158" y1="70" x2="210" y2="70" stroke="#5C6577" stroke-width="1"/>
-              <line x1="158" y1="78" x2="200" y2="78" stroke="#5C6577" stroke-width="1"/>
-            </svg>
-          </div>
-        </div>
+      <div class="contrast-row">
+        <div class="contrast-cell before">Each encounter starts again from scattered fragments.</div>
+        <div class="contrast-cell after">Each encounter starts from a coherent, source-referenced case view.</div>
       </div>
-
-      <div class="tabpanel" role="tabpanel" id="c-p3" aria-labelledby="c-t3">
-        <div class="cap">
-          <div>
-            <span class="tag">Gap-aware</span>
-            <p class="khook">Shows not only what is known — but what is missing or contradictory.</p>
-            <p>NAVORA helps make missing information, conflicting statements and unresolved clinical questions visible, so they can be reviewed rather than overlooked.</p>
-          </div>
-          <div class="cap-visual">
-            <svg viewBox="0 0 240 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A gap and an open question on a trajectory">
-              <path d="M20 100 C 60 70, 90 90, 120 70" fill="none" stroke="#18263F" stroke-width="2" stroke-linecap="round"/>
-              <path d="M160 60 C 185 55, 205 75, 220 60" fill="none" stroke="#18263F" stroke-width="2" stroke-linecap="round"/>
-              <line x1="120" y1="70" x2="160" y2="60" stroke="#B08A40" stroke-width="1.4" stroke-dasharray="3 4"/>
-              <circle cx="140" cy="65" r="9" fill="none" stroke="#B08A40" stroke-width="1.4"/>
-              <text x="136" y="69" font-family="Inter" font-size="11" fill="#B08A40">?</text>
-            </svg>
-          </div>
-        </div>
+      <div class="contrast-row">
+        <div class="contrast-cell before">Gaps and contradictions stay invisible until they cause harm.</div>
+        <div class="contrast-cell after">Gaps, contradictions and open questions are surfaced for review.</div>
       </div>
-    </div>
-
-    <!-- two remaining principles, compact -->
-    <div class="usp-strip reveal" style="margin-top:34px;grid-template-columns:repeat(2,1fr);">
-      <div class="usp-cell"><div class="idx">Human-controlled</div><h3>The judgement stays with the clinician</h3><p>NAVORA supports orientation. It makes no autonomous diagnosis or treatment decision.</p></div>
-      <div class="usp-cell"><div class="idx">Useful early</div><h3>Works before full interoperability</h3><p>NAVORA starts from existing PDFs and reports, and gets stronger as interoperability improves.</p></div>
     </div>
   </div>
 </section>
 
-<!-- IS / IS NOT -->
-<section class="section section--paper" id="isnot">
+<!-- LAYER + VISUAL (c) where NAVORA sits -->
+<section class="section" id="layer">
   <div class="wrap">
     <div class="stack-head reveal">
       <p class="eyebrow">Positioning</p>
-      <h2>Clear about what it is — and what it is not.</h2>
+      <h2>Where NAVORA sits</h2>
+      <p class="section-sub">Moving and storing data is increasingly solved. Understanding the case is not. NAVORA is the orientation layer above existing systems — not a replacement for them.</p>
     </div>
-    <div class="isnot reveal">
-      <div class="isnot-col is">
-        <h3>NAVORA is</h3>
-        <ul>
-          <li><span class="mk">Λ</span> A source-traceable orientation layer</li>
-          <li><span class="mk">Λ</span> A longitudinal case-logic system</li>
-          <li><span class="mk">Λ</span> A trajectory reconstruction layer</li>
-          <li><span class="mk">Λ</span> A human-in-the-loop intelligence infrastructure</li>
-          <li><span class="mk">Λ</span> A modular system for complex care</li>
-        </ul>
+    <div class="figure reveal" style="max-width:880px;margin:0 auto;">
+      <svg class="viz viz-enter" viewBox="0 0 780 440" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+  <defs>
+    <filter id="lcShadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#18263F" flood-opacity="0.16"/>
+    </filter>
+    <filter id="lcSoft" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#18263F" flood-opacity="0.10"/>
+    </filter>
+    <linearGradient id="lcBand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#23344F"/><stop offset="1" stop-color="#18263F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- left captions -->
+  <g font-size="11" fill="#5C6577">
+    <text x="64" y="80" text-anchor="middle">Clinician</text>
+    <text x="64" y="222" text-anchor="middle" fill="#B08A40" font-weight="600">Orientation</text>
+    <text x="64" y="338" text-anchor="middle">Data &amp;</text>
+    <text x="64" y="352" text-anchor="middle">systems</text>
+  </g>
+
+  <!-- TOP clinician output -->
+  <g filter="url(#lcSoft)">
+    <rect x="318" y="56" width="232" height="40" rx="20" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.28"/>
+  </g>
+  <circle cx="344" cy="76" r="9" fill="none" stroke="#18263F" stroke-opacity="0.6" stroke-width="1.4"/>
+  <path d="M338 80 a6 6 0 0 1 12 0" fill="none" stroke="#18263F" stroke-opacity="0.6" stroke-width="1.4"/>
+  <text x="362" y="80" font-size="11.5" fill="#18263F">Clinician — reviewable case view</text>
+  <!-- coherent arrow up -->
+  <line x1="434" y1="178" x2="434" y2="100" stroke="#18263F" stroke-width="2.2"/>
+  <path d="M434 94 l-5.5 10 h11 z" fill="#18263F"/>
+  <text x="446" y="142" font-size="10" fill="#5C6577" font-style="italic">coherent case view</text>
+
+  <!-- NAVORA band -->
+  <g filter="url(#lcShadow)">
+    <rect x="150" y="176" width="600" height="80" rx="10" fill="url(#lcBand)" stroke="#B08A40" stroke-width="2"/>
+  </g>
+  <text x="178" y="214" font-family="'Cormorant Garamond', serif" font-size="28" font-weight="600" fill="#F7F5F1">NAVORA</text>
+  <text x="178" y="236" font-size="10.5" fill="rgba(247,245,241,0.68)">Clinical orientation layer · source-referenced · longitudinal · human-controlled</text>
+  <!-- trajectory motif inside band -->
+  <path d="M474 224 C 520 206, 560 232, 602 214 S 678 222, 724 204" fill="none" stroke="#C9A85F" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="474" cy="224" r="3.6" fill="#C9A85F"/><circle cx="602" cy="214" r="3.6" fill="#F7F5F1"/><circle cx="724" cy="204" r="4.2" fill="#C9A85F"/>
+
+  <!-- fragmentation arrows -->
+  <g fill="none" stroke="#B08A40" stroke-opacity="0.6" stroke-width="1.3" stroke-dasharray="4 4">
+    <path d="M205 300 C 250 282, 330 270, 372 258"/>
+    <path d="M327 300 C 322 288, 306 272, 300 258"/>
+    <path d="M450 300 C 438 284, 462 270, 470 258"/>
+    <path d="M572 300 C 548 282, 380 270, 356 258"/>
+    <path d="M694 300 C 668 282, 540 268, 520 258"/>
+  </g>
+  <g fill="#B08A40" fill-opacity="0.7">
+    <path d="M372 258 l4 6 -7 1 z"/><path d="M300 258 l-1 7 6 -3 z"/><path d="M470 258 l1 7 5 -4 z"/><path d="M356 258 l-1 7 6 -3 z"/><path d="M520 258 l0 7 6 -3 z"/>
+  </g>
+  <text x="252" y="290" font-size="10" fill="#5C6577" font-style="italic">fragmented, un-synthesised inputs</text>
+
+  <!-- source slabs -->
+  <g font-size="11" fill="#18263F">
+    <!-- EHR -->
+    <g filter="url(#lcSoft)"><rect x="150" y="302" width="110" height="62" rx="6" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.22"/></g>
+    <g stroke="#18263F" stroke-opacity="0.65" stroke-width="1.4" fill="none">
+      <rect x="192" y="318" width="26" height="18" rx="2"/><line x1="200" y1="340" x2="210" y2="340"/><line x1="205" y1="336" x2="205" y2="340"/>
+    </g>
+    <text x="205" y="356" text-anchor="middle">EHR / HIS</text>
+    <!-- Documents -->
+    <g filter="url(#lcSoft)"><rect x="272" y="302" width="110" height="62" rx="6" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.22"/></g>
+    <g stroke="#18263F" stroke-opacity="0.65" stroke-width="1.4" fill="none">
+      <path d="M318 316 h14 l6 6 v18 h-20 z"/><line x1="322" y1="326" x2="333" y2="326"/><line x1="322" y1="331" x2="333" y2="331"/>
+    </g>
+    <text x="327" y="356" text-anchor="middle">Documents</text>
+    <!-- Devices -->
+    <g filter="url(#lcSoft)"><rect x="394" y="302" width="110" height="62" rx="6" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.22"/></g>
+    <g stroke="#18263F" stroke-opacity="0.65" stroke-width="1.4" fill="none">
+      <rect x="436" y="317" width="26" height="18" rx="2"/><polyline points="440,328 444,328 446,323 449,332 451,328 458,328"/>
+    </g>
+    <text x="449" y="356" text-anchor="middle">Devices</text>
+    <!-- Imaging -->
+    <g filter="url(#lcSoft)"><rect x="516" y="302" width="110" height="62" rx="6" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.22"/></g>
+    <g stroke="#18263F" stroke-opacity="0.65" stroke-width="1.4" fill="none">
+      <rect x="558" y="317" width="22" height="18" rx="2"/><path d="M558 330 l7 -6 5 5 4 -3"/>
+    </g>
+    <text x="571" y="356" text-anchor="middle">Imaging</text>
+    <!-- Patient apps -->
+    <g filter="url(#lcSoft)"><rect x="638" y="302" width="110" height="62" rx="6" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.22"/></g>
+    <g stroke="#18263F" stroke-opacity="0.65" stroke-width="1.4" fill="none">
+      <rect x="685" y="316" width="14" height="22" rx="2.5"/><line x1="690" y1="334" x2="694" y2="334"/>
+    </g>
+    <text x="693" y="356" text-anchor="middle">Patient apps</text>
+  </g>
+
+  <!-- infra rail -->
+  <rect x="150" y="384" width="598" height="30" rx="6" fill="#FBFAF7" stroke="#18263F" stroke-opacity="0.16"/>
+  <text x="449" y="403" text-anchor="middle" font-size="10.5" fill="#5C6577">Interoperability &amp; data platform · HL7 · FHIR · DICOM · cloud — moved &amp; stored, not yet understood</text>
+</svg>
+
+      <p class="fig-cap">Many fragmented inputs flow up; one coherent, source-referenced case view flows to the clinician. The judgement stays with the physician.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section section--paper" id="solution">
+  <div class="wrap">
+    <div class="stack-head reveal">
+      <p class="eyebrow">The solution</p>
+      <h2>NAVORA's Solution</h2>
+      <p class="section-sub">Early-stage clinical intelligence infrastructure for complex care.</p>
+      <p class="lead" style="margin-top:26px;">NAVORA transforms fragmented medical histories into source-referenced, longitudinal clinical orientation. We provide the infrastructure that enables clinicians to see the whole case clearly.</p>
+    </div>
+    <div class="cards reveal">
+      <div class="card"><h3>Source-Referenced</h3><span class="sub">Every clinical element tracked to its source</span><p>Understand where clinical information came from, maintaining full traceability and clinical credibility throughout complex cases.</p></div>
+      <div class="card"><h3>Longitudinal Orientation</h3><span class="sub">Temporal continuity across care encounters</span><p>See patterns and progression over time, revealing the clinical narrative that fragments alone cannot convey.</p></div>
+      <div class="card"><h3>Infrastructure, Not Diagnosis</h3><span class="sub">Supports clinician decision-making</span><p>NAVORA provides the orientation layer. Clinicians remain the decision-makers, informed by a coherent, longitudinal view of the entire case.</p></div>
+      <div class="card"><h3>Modular Design</h3><span class="sub">Integrates with existing clinical workflows</span><p>Built as infrastructure components that work alongside current EHRs, imaging systems, and specialist workflows.</p></div>
+      <div class="card"><h3>Complex Care Focus</h3><span class="sub">Designed for intricate, multi-specialty cases</span><p>Purpose-built for chronic conditions requiring coordination across multiple specialists and time horizons.</p></div>
+      <div class="card"><h3>Clinical-Grade Rigor</h3><span class="sub">Regulatory-aware and safety-conscious</span><p>Early-stage infrastructure developed with clinical validation partners to ensure safety and appropriateness.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON (semantics & architecture) -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="stack-head reveal">
+      <p class="eyebrow">Semantics &amp; architecture</p>
+      <h2>Why NAVORA, not generic tooling</h2>
+      <p class="section-sub">Generic AI summarises text. Data platforms standardise formats. Neither preserves clinical meaning and provenance — NAVORA is built to.</p>
+    </div>
+    <div class="cmp reveal">
+      <div class="cmp-row cmp-head">
+        <div class="cmp-cell cmp-dim">Dimension</div>
+        <div class="cmp-cell cmp-nav">NAVORA</div>
+        <div class="cmp-cell cmp-gen">Generic AI summary / data tooling</div>
       </div>
-      <div class="isnot-col isnot-x">
-        <h3>NAVORA is not</h3>
-        <ul>
-          <li><span class="mk">×</span> An autonomous diagnosis tool</li>
-          <li><span class="mk">×</span> An EHR / HIS replacement</li>
-          <li><span class="mk">×</span> A generic medical chatbot</li>
-          <li><span class="mk">×</span> A document store or medical scribe</li>
-          <li><span class="mk">×</span> A patient self-tracking app</li>
-        </ul>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-dim">Clinical meaning</div>
+        <div class="cmp-cell cmp-nav">Distinguishes findings, observations, diagnoses and hypotheses.</div>
+        <div class="cmp-cell cmp-gen">Flattens everything into text or generic fields — risk of semantic distortion.</div>
       </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-dim">Provenance</div>
+        <div class="cmp-cell cmp-nav">Every statement stays linked to its source, date and context.</div>
+        <div class="cmp-cell cmp-gen">Source link is usually lost after summarising or exporting.</div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-dim">Longitudinal view</div>
+        <div class="cmp-cell cmp-nav">Reconstructs the trajectory across years and specialties.</div>
+        <div class="cmp-cell cmp-gen">Optimised for single documents or point-in-time records.</div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-dim">Gaps &amp; contradictions</div>
+        <div class="cmp-cell cmp-nav">Surfaces what is missing or conflicting.</div>
+        <div class="cmp-cell cmp-gen">Tends to present a smoothed-over, confident narrative.</div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-dim">Human control</div>
+        <div class="cmp-cell cmp-nav">A reviewable working view — the clinician decides.</div>
+        <div class="cmp-cell cmp-gen">Often positioned as an answer, not a reviewable basis.</div>
+      </div>
+      <div class="cmp-row">
+        <div class="cmp-cell cmp-dim">Output</div>
+        <div class="cmp-cell cmp-nav">Structured, source-referenced clinical objects.</div>
+        <div class="cmp-cell cmp-gen">Free text or dashboards detached from the case.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS (use-case tabs / Laschen) -->
+<section class="section section--paper" id="solutions">
+  <div class="wrap">
+    <div class="stack-head reveal">
+      <p class="eyebrow">Solutions</p>
+      <h2>Where NAVORA helps</h2>
+      <p class="section-sub">One case-reconstruction layer, applied where complex care is hardest. Indicated modules differ in stage — not all are equally far.</p>
+    </div>
+    <div class="tabs reveal" data-tabs>
+      <div class="tablist" role="tablist" aria-label="NAVORA use contexts">
+        <button class="tab" role="tab" aria-selected="true" id="so-t1" aria-controls="so-p1">Complex chronic case review</button>
+        <button class="tab" role="tab" aria-selected="false" id="so-t2" aria-controls="so-p2" tabindex="-1">Second opinions &amp; consilia</button>
+        <button class="tab" role="tab" aria-selected="false" id="so-t3" aria-controls="so-p3" tabindex="-1">Care coordination</button>
+        <button class="tab" role="tab" aria-selected="false" id="so-t4" aria-controls="so-p4" tabindex="-1">Research-ready cases</button>
+      </div>
+      <div class="tabpanel active" role="tabpanel" id="so-p1" aria-labelledby="so-t1">
+        <div class="sol">
+          <div>
+            <p class="khook">Make a years-long, multi-specialty case readable before the consultation begins.</p>
+            <ul>
+              <li>Faster orientation in the relevant history.</li>
+              <li>Trajectory, turning points and open questions in one view.</li>
+              <li>Less repeated re-explanation for patients and caregivers.</li>
+            </ul>
+          </div>
+          <div class="tags"><span>Klio</span><span>Tractus</span><span>Source-referencing</span></div>
+        </div>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="so-p2" aria-labelledby="so-t2">
+        <div class="sol">
+          <div>
+            <p class="khook">Bring a structured, source-referenced case history to the table.</p>
+            <ul>
+              <li>What happened, what is known, what stays open.</li>
+              <li>A reviewable basis — not a verdict.</li>
+              <li>Faster alignment in case conferences and referrals.</li>
+            </ul>
+          </div>
+          <div class="tags"><span>Klio</span><span>Core</span><span>Source-referencing</span></div>
+        </div>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="so-p3" aria-labelledby="so-t3">
+        <div class="sol">
+          <div>
+            <p class="khook">Reduce coordination chaos across clinicians, patients and caregivers.</p>
+            <ul>
+              <li>Responsibilities, open questions and next steps in one place.</li>
+              <li>Fewer duplications and dropped threads.</li>
+              <li>Continuity between encounters, not only at them.</li>
+            </ul>
+          </div>
+          <div class="tags"><span class="fut">Nexus · long-term</span><span class="fut">Continuum · validation path</span></div>
+        </div>
+      </div>
+      <div class="tabpanel" role="tabpanel" id="so-p4" aria-labelledby="so-t4">
+        <div class="sol">
+          <div>
+            <p class="khook">Structured complex cases — research-ready, when ethically and legally governed.</p>
+            <ul>
+              <li>Consistently structured complex cases.</li>
+              <li>Better visibility of care gaps.</li>
+              <li>Potential future cohort insight under proper governance.</li>
+            </ul>
+          </div>
+          <div class="tags"><span class="fut">Cohort Intelligence · long-term</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALIDATION -->
+<section class="section" id="validation">
+  <div class="wrap">
+    <div class="stack-head reveal">
+      <p class="eyebrow">Validation</p>
+      <h2>Validation Thesis</h2>
+      <p class="section-sub">What we aim to validate with clinical partners.</p>
+      <p class="lead" style="margin-top:26px;">These research hypotheses guide our partnership conversations with clinical validation partners.</p>
+    </div>
+    <div class="hyp-grid reveal">
+      <div class="hyp"><div class="hyp-top"><span class="h">H1</span><h3>Longitudinal orientation improves care coordination</h3></div><p>Clinician teams with access to source-referenced, longitudinal case views demonstrate improved coordination and fewer redundant diagnostic efforts.</p></div>
+      <div class="hyp"><div class="hyp-top"><span class="h">H2</span><h3>Pattern recognition accelerates insight</h3></div><p>Clinical teams identify meaningful patterns more quickly when the longitudinal case is presented coherently rather than as fragmented records.</p></div>
+      <div class="hyp"><div class="hyp-top"><span class="h">H3</span><h3>Time investment decreases for case orientation</h3></div><p>Clinicians spend less time on case orientation and re-reading fragmented records, gaining time for clinical reasoning and decision-making.</p></div>
+      <div class="hyp"><div class="hyp-top"><span class="h">H4</span><h3>Clinical credibility depends on source transparency</h3></div><p>Source-referenced orientation is essential for clinical trust and appropriate decision-making in complex care settings.</p></div>
     </div>
   </div>
 </section>
 
 <!-- HOW IT WORKS -->
 <section class="section section--dark" id="how">
-  <div class="wrap split">
-    <div class="reveal">
+  <div class="wrap">
+    <div class="stack-head reveal">
       <p class="eyebrow">How it works</p>
-      <h2 class="hook">Structured clinical objects —<br>not a text summary.</h2>
-      <p class="lead" style="margin-top:16px;">A high-level view. Every step stays reviewable and traceable, with human oversight throughout.</p>
+      <h2>How NAVORA Works</h2>
+      <p class="section-sub" style="color:var(--muted-light);">The stepwise transformation of fragmented data into clinical intelligence.</p>
     </div>
-    <div class="steps reveal">
-      <div class="step"><div class="st">Step 01</div><h3>Ingestion</h3><p>Existing reports, documents and observations enter one structured case context.</p></div>
-      <div class="step"><div class="st">Step 02</div><h3>Structuring &amp; differentiation</h3><p>Information becomes structured objects — distinguishing findings, observations, diagnoses and hypotheses.</p></div>
-      <div class="step"><div class="st">Step 03</div><h3>Timeline reconstruction</h3><p>The course of the case is reconstructed over time, making turning points and gaps visible.</p></div>
-      <div class="step"><div class="st">Step 04</div><h3>Source referencing</h3><p>Each relevant statement stays linked to its original source, date and context.</p></div>
-      <div class="step"><div class="st">Step 05</div><h3>Gap &amp; contradiction detection</h3><p>Missing information, conflicts and open questions are surfaced for review.</p></div>
-      <div class="step"><div class="st">Step 06</div><h3>Briefing &amp; human review</h3><p>A reviewable working view that a clinician verifies — never an automated conclusion.</p></div>
+    <div class="flow reveal">
+      <div class="flow-step"><div class="flow-num">1</div><h3>Ingest</h3><p>Aggregate medical records from multiple sources and systems.</p></div>
+      <div class="flow-step"><div class="flow-num">2</div><h3>Structure</h3><p>Normalize and structure data into clinical concepts and relationships.</p></div>
+      <div class="flow-step"><div class="flow-num">3</div><h3>Reference</h3><p>Maintain source traceability for every clinical element.</p></div>
+      <div class="flow-step"><div class="flow-num">4</div><h3>Orient</h3><p>Create longitudinal, coherent case orientation from fragments.</p></div>
+      <div class="flow-step"><div class="flow-num">5</div><h3>Clinician Views</h3><p>Deliver clinician-facing interfaces for clear, actionable insight.</p></div>
     </div>
-  </div>
-</section>
-
-<!-- MODULES — TABS -->
-<section class="section" id="modules">
-  <div class="wrap">
-    <div class="stack-head reveal">
-      <p class="eyebrow">Modular vision</p>
-      <h2>From clinical context to system navigation.</h2>
-      <p class="lead" style="margin-top:16px;">One system, built in phases. Not every module is at the same stage — switch between the layers below.</p>
-    </div>
-
-    <div class="tabs reveal" data-tabs>
-      <div class="tablist" role="tablist" aria-label="NAVORA modular layers">
-        <button class="tab" role="tab" aria-selected="true" id="m-t1" aria-controls="m-p1">Structure today</button>
-        <button class="tab" role="tab" aria-selected="false" id="m-t2" aria-controls="m-p2" tabindex="-1">Intelligence layer</button>
-        <button class="tab" role="tab" aria-selected="false" id="m-t3" aria-controls="m-p3" tabindex="-1">Coordination layer</button>
-      </div>
-
-      <div class="tabpanel active" role="tabpanel" id="m-p1" aria-labelledby="m-t1">
-        <p class="tier-meta">The foundation — current MVP focus and near-term validation.</p>
-        <div class="mods">
-          <div class="mod"><div class="mod-top"><h3>NAVORA Core</h3><span class="badge now">Core · MVP</span></div><p>The structured foundation for data logic, privacy principles and source traceability. Core distinguishes findings, observations, diagnoses and hypotheses — reviewable rather than merely generative.</p></div>
-          <div class="mod"><div class="mod-top"><h3>NAVORA Klio</h3><span class="badge now">MVP-near</span></div><p>The clinical story engine. Turns scattered records into a readable case history — what happened, what is known, what stays open. For first consultations, second opinions and case conferences.</p></div>
-          <div class="mod"><div class="mod-top"><h3>NAVORA Tractus</h3><span class="badge now">MVP-near</span></div><p>The longitudinal pathway layer. Makes the course of illness visible over time — turning points, deteriorations, gaps and possible triggers. It does not diagnose.</p></div>
-        </div>
-      </div>
-
-      <div class="tabpanel" role="tabpanel" id="m-p2" aria-labelledby="m-t2">
-        <p class="tier-meta">Validation path — strengthening reviewable insight over time.</p>
-        <div class="mods">
-          <div class="mod"><div class="mod-top"><h3>Care / Continuum</h3><span class="badge val">Validation path</span></div><p>The bridge between appointments and daily life. Helps capture relapses, stabilisation, limits and warning signals between encounters — trajectory awareness, not isolated snapshots.</p></div>
-          <div class="mod"><div class="mod-top"><h3>Pattern Intelligence</h3><span class="badge val">Validation path</span></div><p>A layer for surfacing recurring, reviewable patterns across symptoms, labs, medication, sleep or exertion. It does not diagnose — it makes patterns visible for human review.</p></div>
-          <div class="mod"><div class="mod-top"><h3>Cohort Intelligence</h3><span class="badge fut">Long-term vision</span></div><p>A future anonymised learning layer comparing similar complex trajectories. For research, quality improvement and system learning — once ethically, legally and technically governed.</p></div>
-        </div>
-      </div>
-
-      <div class="tabpanel" role="tabpanel" id="m-p3" aria-labelledby="m-t3">
-        <p class="tier-meta">Long-term platform vision — reducing coordination burden.</p>
-        <div class="mods">
-          <div class="mod"><div class="mod-top"><h3>Patient Companion</h3><span class="badge val">Validation path</span></div><p>A structured patient and caregiver layer translating everyday observations into medically usable context. Reduces repeated storytelling — a structured view, not a symptom tracker.</p></div>
-          <div class="mod"><div class="mod-top"><h3>NAVORA Nexus</h3><span class="badge fut">Long-term vision</span></div><p>The coordination layer. Structures responsibilities, open questions and next steps across clinicians, patients, caregivers and system actors — to reduce coordination chaos.</p></div>
-          <div class="mod"><div class="mod-top"><h3>NAVORA Assist</h3><span class="badge fut">Long-term vision</span></div><p>The practical support layer. Translates complex situations into concrete next actions — documents, appointments, forms, questions — where people currently coordinate alone.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHO — STAKEHOLDER TABS -->
-<section class="section section--dark" id="who">
-  <div class="wrap">
-    <div class="stack-head reveal">
-      <p class="eyebrow">For whom</p>
-      <h2>Built for everyone around the case.</h2>
-    </div>
-
-    <div class="tabs reveal" data-tabs>
-      <div class="tablist" role="tablist" aria-label="Value by stakeholder">
-        <button class="tab" role="tab" aria-selected="true" id="s-t1" aria-controls="s-p1">Clinicians</button>
-        <button class="tab" role="tab" aria-selected="false" id="s-t2" aria-controls="s-p2" tabindex="-1">Patients &amp; Caregivers</button>
-        <button class="tab" role="tab" aria-selected="false" id="s-t3" aria-controls="s-p3" tabindex="-1">Research</button>
-        <button class="tab" role="tab" aria-selected="false" id="s-t4" aria-controls="s-p4" tabindex="-1">Health systems</button>
-      </div>
-
-      <div class="tabpanel active" role="tabpanel" id="s-p1" aria-labelledby="s-t1">
-        <div class="stake">
-          <p class="khook">Faster orientation, before the consultation even starts.</p>
-          <ul>
-            <li>Faster orientation in complex cases</li>
-            <li>Better pre-consultation briefing</li>
-            <li>Reviewable case context</li>
-            <li>Visibility of gaps and open questions</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tabpanel" role="tabpanel" id="s-p2" aria-labelledby="s-t2">
-        <div class="stake">
-          <p class="khook">Tell the story once — keep the overview.</p>
-          <ul>
-            <li>Less repeated storytelling</li>
-            <li>Structured preparation for appointments</li>
-            <li>A clearer overview of the trajectory</li>
-            <li>Reduced coordination burden</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tabpanel" role="tabpanel" id="s-p3" aria-labelledby="s-t3">
-        <div class="stake">
-          <p class="khook">Structured complex cases — research-ready, if governed.</p>
-          <ul>
-            <li>Structured complex cases</li>
-            <li>Better visibility of care gaps</li>
-            <li>Potential future cohort insight</li>
-            <li>Research-ready logic under ethical and legal governance</li>
-          </ul>
-        </div>
-      </div>
-      <div class="tabpanel" role="tabpanel" id="s-p4" aria-labelledby="s-t4">
-        <div class="stake">
-          <p class="khook">Earlier visibility of complex trajectories (later stage).</p>
-          <ul>
-            <li>Less duplication</li>
-            <li>Better care coordination</li>
-            <li>Earlier visibility of complex trajectories</li>
-            <li>Potential quality and system-learning benefits</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOCUS -->
-<section class="section section--paper" id="focus">
-  <div class="wrap split">
-    <div class="reveal">
-      <p class="eyebrow">Initial focus</p>
-      <h2>Where the gap is clearest.</h2>
-      <p class="lead" style="margin-top:16px;">NAVORA begins with complex chronic trajectories — years of fragmentation, repeated re-explanation, many specialties, unclear responsibilities, unresolved questions.</p>
-      <div class="focus-tags">
-        <span>ME / CFS</span><span>Long Covid</span><span>Dysautonomia / POTS</span><span>Multisystem chronic care</span>
-      </div>
-    </div>
-    <div class="reveal">
-      <p class="lead">These cases make the structural gap especially visible. The same case logic is designed to extend later to other complex care journeys — once validated where the need is most acute.</p>
-    </div>
-  </div>
-</section>
-
-<!-- TRUST -->
-<section class="section" id="trust">
-  <div class="wrap">
-    <div class="stack-head reveal">
-      <p class="eyebrow">Trust &amp; governance</p>
-      <h2 class="hook">Source referencing is the basis of trust.</h2>
-    </div>
-    <div class="trust-grid reveal">
-      <div class="trust-item"><h3>Privacy-first by design</h3><p>Data minimisation and privacy logic are part of the architecture, not an afterthought.</p></div>
-      <div class="trust-item"><h3>Source traceability</h3><p>Relevant statements stay linked to their original source and context.</p></div>
-      <div class="trust-item"><h3>Human-in-the-loop</h3><p>No autonomous diagnosis or treatment. The judgement stays with the clinician.</p></div>
-      <div class="trust-item"><h3>Synthetic data first</h3><p>Validation runs on synthetic and anonymised cases before any real-world use.</p></div>
-      <div class="trust-item"><h3>Consent &amp; legal basis</h3><p>Real patient data only with consent, a legal basis and appropriate governance.</p></div>
-      <div class="trust-item"><h3>Regulatory pathway under review</h3><p>CH / EU data residency, MDR and EU AI Act implications assessed against intended use.</p></div>
-    </div>
-    <p class="trust-note">NAVORA makes no claim to be a certified medical device or fully compliant at this stage. Regulatory classification and legal review precede any processing of real patient data at scale.</p>
-  </div>
-</section>
-
-<!-- STAGE -->
-<section class="section section--dark" id="stage">
-  <div class="wrap">
-    <div class="stack-head reveal">
-      <p class="eyebrow">Current stage</p>
-      <h2>More than an idea — honest about the stage.</h2>
-    </div>
-    <div class="stage-grid">
-      <div class="reveal">
-        <ul class="stage-list">
-          <li><span class="d">→</span> MVP / demo available</li>
-          <li><span class="d">→</span> Expert validation ongoing</li>
-          <li><span class="d">→</span> Own market and competitive analysis in place</li>
-          <li><span class="d">→</span> External strategic and technical review in progress</li>
-          <li><span class="d">→</span> Architecture and governance decisions underway</li>
-        </ul>
-      </div>
-      <div class="reveal seeking" id="demo">
-        <h3>We are looking for</h3>
-        <ul>
-          <li>Clinical validation partners in complex chronic care</li>
-          <li>Technical architecture partners</li>
-          <li>Regulatory and data-protection guidance</li>
-          <li>Pilot contexts and research collaboration</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" style="margin-top:24px;">Start a conversation <span class="arr">→</span></a>
-      </div>
-    </div>
+    <p class="flow-note reveal">NAVORA supports clinical teams. Clinicians remain responsible for all clinical decisions and care recommendations.</p>
   </div>
 </section>
 
 <!-- FOUNDER -->
 <section class="section section--paper" id="founder">
-  <div class="wrap founder">
-    <div class="reveal">
+  <div class="wrap">
+    <div class="stack-head reveal">
       <p class="eyebrow">Founder</p>
-      <div class="founder-card">
-        <div class="founder-mark">Λ</div>
-        <div class="name">Nilab Sekandari</div>
-        <div class="role">Founder</div>
-        <p>A regulated-system background in financial services, client advisory, documentation and risk synthesis — combined with lived experience in complex chronic care as patient and caregiver.</p>
+      <h2>The Founder</h2>
+      <p class="section-sub">NAVORA's story and founding perspective.</p>
+    </div>
+    <div class="founder-card reveal">
+      <p class="intro">Built from the vantage point where the whole case became visible. NAVORA was founded by Nilab Sekandari, shaped by lived experience with complex chronic care, caregiver responsibility, and professional work in regulated, documentation-heavy environments. The founding insight is simple: complex cases can be fully documented and still not be clinically readable as a whole. When each consultation starts from fragments, the person carrying the case often becomes the only continuity layer across time, systems, and decisions.</p>
+      <div class="founder-quote">
+        <p>"I didn't see the pattern because I knew more medicine. I saw it because I was holding the whole timeline."</p>
+        <span class="attr">— Nilab Sekandari, Founder</span>
       </div>
     </div>
-    <div class="reveal founder-body">
-      <p class="pull">NAVORA was not designed from a textbook. It came from holding the whole trajectory at once.</p>
-      <p>Patient experience, caregiver burden, fragmented documentation, system navigation and regulated decision environments — NAVORA is built where these meet.</p>
-      <p>That perspective is the bridge between patient complexity, documentation burden, clinical workflows and product logic — and the reason NAVORA starts from the case, not the technology.</p>
-    </div>
-  </div>
-</section>
-
-<!-- SWISS CONTEXT -->
-<section class="section--tight section--dark" id="context">
-  <div class="wrap split" style="align-items:center;">
-    <div class="reveal">
-      <p class="eyebrow">Context</p>
-      <h2 style="font-size:clamp(24px,3.2vw,36px)">A complementary layer, not a competitor to infrastructure.</h2>
-    </div>
-    <div class="reveal">
-      <p class="lead">Switzerland is investing in interoperability, the EPD, FHIR and digital-health infrastructure. But data movement alone does not create clinical usability. NAVORA is designed as a complementary orientation layer — making moved data readable as a case.</p>
-    </div>
+    <p class="founder-closing reveal">NAVORA exists to make that whole-case coherence visible and accessible to clinical teams, without requiring one person to hold the entire timeline.</p>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="section contact" id="contact">
-  <div class="wrap reveal">
-    <p class="eyebrow" style="text-align:center;">Contact</p>
-    <h2>Let's talk about complex care.</h2>
-    <p class="lead">For clinical, technical, research or ecosystem conversations.</p>
-    <div class="contact-row">
-      <a href="mailto:nilab@clinicalintelligence.ch" class="btn btn-primary">Request an introduction <span class="arr">→</span></a>
-      <a href="#" class="btn btn-ghost" id="linkedin">LinkedIn</a>
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="stack-head reveal">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in Touch</h2>
+      <p class="section-sub">Explore partnership opportunities with NAVORA.</p>
     </div>
-    <a href="mailto:nilab@clinicalintelligence.ch" class="mail">nilab@clinicalintelligence.ch</a>
+    <div class="contact-grid">
+      <div class="contact-intro reveal">
+        <p>We're actively seeking clinical validation partners, research collaborators, and strategic partners who share our vision for clinical intelligence infrastructure in complex care.</p>
+        <p>Contact us to discuss how NAVORA might support your clinical team, research initiative, or organization.</p>
+        <p style="margin-top:24px;font-family:var(--serif);font-size:22px;color:var(--gold);"><a href="mailto:nilab@clinicalintelligence.ch">nilab@clinicalintelligence.ch</a></p>
+      </div>
+      <div class="form-card reveal">
+        <div class="field"><label for="f-name">Name <span class="req">*</span></label><input id="f-name" type="text" placeholder="Your name" required /></div>
+        <div class="field"><label for="f-email">Email <span class="req">*</span></label><input id="f-email" type="email" placeholder="your.email@organization.com" required /></div>
+        <div class="field"><label for="f-org">Organization</label><input id="f-org" type="text" placeholder="Healthcare organization or institution" /></div>
+        <div class="field"><label for="f-interest">Primary Interest <span class="req">*</span></label>
+          <select id="f-interest" required>
+            <option value="" selected>Select an option</option>
+            <option>Clinical validation partnership</option>
+            <option>Research collaboration</option>
+            <option>Technical / architecture partnership</option>
+            <option>Strategic partnership</option>
+            <option>Mentoring / advisory</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg">Message <span class="req">*</span></label><textarea id="f-msg" placeholder="Tell us about your interest and how NAVORA might support your work..." required></textarea></div>
+        <button type="button" class="btn btn-gold" id="f-send" style="width:100%;justify-content:center;">Send message <span class="arr">→</span></button>
+        <p class="form-note" id="f-note">Opens in your email client. No data is stored or tracked on this site.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -765,10 +857,12 @@
     </div>
     <div class="foot-links">
       <a href="#problem">Problem</a>
-      <a href="#what">What it does</a>
-      <a href="#modules">Modules</a>
-      <a href="#who">For whom</a>
-      <a href="#stage">Stage</a>
+      <a href="#layer">Layer</a>
+      <a href="#solution">Solution</a>
+      <a href="#solutions">Use cases</a>
+      <a href="#validation">Validation</a>
+      <a href="#how">How It Works</a>
+      <a href="#founder">Founder</a>
       <a href="#contact">Contact</a>
     </div>
   </div>
@@ -786,36 +880,42 @@
   toggle.addEventListener('click', () => links.classList.toggle('open'));
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
 
-  // reveal
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
+  document.getElementById('f-send').addEventListener('click', () => {
+    const v = id => (document.getElementById(id).value || '').trim();
+    const name = v('f-name'), email = v('f-email'), org = v('f-org'),
+          interest = v('f-interest'), msg = v('f-msg');
+    const note = document.getElementById('f-note');
+    if (!name || !email || !interest || !msg){
+      note.textContent = 'Please complete the required fields (*).';
+      note.style.color = '#b0402b';
+      return;
+    }
+    const subject = 'NAVORA enquiry — ' + interest + ' (' + name + ')';
+    const body = 'Name: ' + name + '\nEmail: ' + email + '\nOrganization: ' + org +
+                 '\nPrimary interest: ' + interest + '\n\nMessage:\n' + msg;
+    window.location.href = 'mailto:nilab@clinicalintelligence.ch?subject=' +
+      encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  });
+
   // tabs (Laschen) — accessible
   document.querySelectorAll('[data-tabs]').forEach(group => {
     const tabs = Array.from(group.querySelectorAll('[role="tab"]'));
     const panels = Array.from(group.querySelectorAll('[role="tabpanel"]'));
-    const select = (i) => {
-      tabs.forEach((t,j) => {
-        const on = j===i;
-        t.setAttribute('aria-selected', on);
-        t.tabIndex = on ? 0 : -1;
-        panels[j].classList.toggle('active', on);
-      });
-    };
-    tabs.forEach((tab,i) => {
-      tab.addEventListener('click', () => select(i));
-      tab.addEventListener('keydown', (e) => {
-        let n = null;
-        if (e.key==='ArrowRight') n = (i+1)%tabs.length;
-        else if (e.key==='ArrowLeft') n = (i-1+tabs.length)%tabs.length;
-        else if (e.key==='Home') n = 0;
-        else if (e.key==='End') n = tabs.length-1;
-        if (n!==null){ e.preventDefault(); select(n); tabs[n].focus(); }
-      });
+    const select = (i) => { tabs.forEach((t,j)=>{ const on=j===i; t.setAttribute('aria-selected',on); t.tabIndex=on?0:-1; panels[j].classList.toggle('active',on);}); };
+    tabs.forEach((tab,i)=>{
+      tab.addEventListener('click',()=>select(i));
+      tab.addEventListener('keydown',(e)=>{ let n=null;
+        if(e.key==='ArrowRight')n=(i+1)%tabs.length; else if(e.key==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;
+        else if(e.key==='Home')n=0; else if(e.key==='End')n=tabs.length-1;
+        if(n!==null){e.preventDefault();select(n);tabs[n].focus();}});
     });
   });
+
 </script>
 </body>
 </html>
